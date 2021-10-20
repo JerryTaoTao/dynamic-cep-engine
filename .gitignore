@@ -1,0 +1,21 @@
+*~
+target
+sloth-blink/logs/
+.idea
+*.iml
+settings.xml
+.classpath.txt
+.fullclasspath.txt
+
+# eclipse
+.project
+.buildpath
+.classpath
+.settings
+.checkstyle
+
+dependency-reduced-pom.xml
+
+.DS_Store
+
+*.flattened-pom.xml
