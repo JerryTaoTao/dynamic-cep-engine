@@ -1,5 +1,6 @@
-package om.streamnative.cep.holder;
+package com.streamnative.cep.holder;
 
+import com.streamnative.cep.ExecutionDescriptor;
 import com.streamnative.cep.common.entity.Metric;
 import com.streamnative.cep.common.entity.Rule;
 import com.streamnative.cep.common.function.MetricTimestampExtractor;
@@ -14,8 +15,6 @@ import java.util.Objects;
 
 import static com.streamnative.cep.common.CommonDescriptor.SOURCE_METRIC_TAG;
 import static com.streamnative.cep.common.CommonDescriptor.SOURCE_RULE_TAG;
-import static om.streamnative.cep.ExecutionDescriptor.SOURCE_METRIC_PARALLELISM;
-import static om.streamnative.cep.ExecutionDescriptor.SOURCE_RULE_PARALLELISM;
 
 /**
  * a source holder for control to generate source
@@ -23,7 +22,7 @@ import static om.streamnative.cep.ExecutionDescriptor.SOURCE_RULE_PARALLELISM;
 public interface SourceHolder {
 
     default DataStream<Rule> getRuleSource(Map<String, String> props, StreamExecutionEnvironment executionEnvironment) {
-        Integer parallelism = Integer.valueOf(props.getOrDefault(SOURCE_RULE_PARALLELISM, "1"));
+        Integer parallelism = Integer.valueOf(props.getOrDefault(ExecutionDescriptor.SOURCE_RULE_PARALLELISM, "1"));
         KafkaSource<Rule> ruleKafkaSource = (KafkaSource<Rule>) SourceFactory.factory(props);
         DataStream<Rule> ruleDataStream = executionEnvironment
                 .fromSource(ruleKafkaSource, null, "rule-source")
@@ -46,8 +45,8 @@ public interface SourceHolder {
 
     default DataStream<Metric> getMetricSource(Map<String, String> props, StreamExecutionEnvironment executionEnvironment) {
         Integer parallelism = executionEnvironment.getParallelism();
-        if (props.containsKey(SOURCE_METRIC_PARALLELISM)) {
-            parallelism = Integer.valueOf(props.get(SOURCE_METRIC_PARALLELISM));
+        if (props.containsKey(ExecutionDescriptor.SOURCE_METRIC_PARALLELISM)) {
+            parallelism = Integer.valueOf(props.get(ExecutionDescriptor.SOURCE_METRIC_PARALLELISM));
         }
 
         KafkaSource<Metric> ruleKafkaSource = (KafkaSource<Metric>) SourceFactory.factory(props);

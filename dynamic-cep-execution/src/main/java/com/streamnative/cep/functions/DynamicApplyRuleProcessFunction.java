@@ -1,11 +1,11 @@
-package om.streamnative.cep.functions;
+package com.streamnative.cep.functions;
 
+import com.streamnative.cep.ExecutionDescriptor;
 import com.streamnative.cep.common.acc.AccumulatorHelper;
 import com.streamnative.cep.common.entity.Metric;
 import com.streamnative.cep.common.entity.Result;
 import com.streamnative.cep.common.entity.Rule;
 import com.streamnative.cep.common.state.StateOperateHolder;
-import om.streamnative.cep.ExecutionDescriptor;
 import org.apache.flink.api.common.accumulators.SimpleAccumulator;
 import org.apache.flink.api.common.state.BroadcastState;
 import org.apache.flink.api.common.state.MapState;

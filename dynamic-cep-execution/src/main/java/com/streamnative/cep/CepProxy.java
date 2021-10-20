@@ -1,12 +1,12 @@
-package om.streamnative.cep;
+package com.streamnative.cep;
 
 import com.streamnative.cep.common.entity.Metric;
 import com.streamnative.cep.common.entity.Result;
 import com.streamnative.cep.common.entity.Rule;
-import om.streamnative.cep.functions.DynamicApplyRuleProcessFunction;
-import om.streamnative.cep.functions.DynamicPartitionProcessFunction;
-import om.streamnative.cep.holder.EnvironmentHolder;
-import om.streamnative.cep.holder.SourceHolder;
+import com.streamnative.cep.functions.DynamicPartitionProcessFunction;
+import com.streamnative.cep.functions.DynamicApplyRuleProcessFunction;
+import com.streamnative.cep.holder.EnvironmentHolder;
+import com.streamnative.cep.holder.SourceHolder;
 import org.apache.flink.streaming.api.datastream.BroadcastStream;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;

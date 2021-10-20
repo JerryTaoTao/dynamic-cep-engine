@@ -1,4 +1,4 @@
-package om.streamnative.cep;
+package com.streamnative.cep;
 
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.slf4j.Logger;

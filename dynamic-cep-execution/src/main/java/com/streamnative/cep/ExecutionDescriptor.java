@@ -1,4 +1,4 @@
-package om.streamnative.cep;
+package com.streamnative.cep;
 
 import com.streamnative.cep.common.entity.Metric;
 import com.streamnative.cep.common.entity.Rule;
